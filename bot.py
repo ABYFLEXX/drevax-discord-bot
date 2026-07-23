@@ -19,9 +19,9 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-print("Content:", message.content)
-print("Embeds:", message.embeds)
-print("Attachments:", message.attachments)
+    print("Content:", message.content)
+    print("Embeds:", message.embeds)
+    print("Attachments:", message.attachments)
 
     # Only respond to DMs
     if isinstance(message.channel, discord.DMChannel):
