@@ -19,6 +19,10 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+print("Content:", message.content)
+print("Embeds:", message.embeds)
+print("Attachments:", message.attachments)
+
     # Only respond to DMs
     if isinstance(message.channel, discord.DMChannel):
         with open("knowledge_base.txt", "a", encoding="utf-8") as f:
