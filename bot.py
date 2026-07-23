@@ -30,9 +30,17 @@ async def on_message(message):
 
     # Only respond to DMs
     if isinstance(message.channel, discord.DMChannel):
+
+        text = message.content
+
+        if not text and getattr(message, "message_snapshots", None):
+            snap = message.message_snapshots[0]
+            print("Snapshot attributes:", dir(snap))
+            text = getattr(snap, "content", "")
+
         with open("knowledge_base.txt", "a", encoding="utf-8") as f:
             f.write(f"\n[{datetime.now()}]\n")
-            f.write(f"{message.author}: {message.content}\n")
+            f.write(f"{message.author}: {text}\n")
             f.write("-" * 50 + "\n")
 
         await message.channel.send("Saved! ✅")
