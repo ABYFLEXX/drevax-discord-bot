@@ -36,7 +36,8 @@ async def on_message(message):
         if not text and getattr(message, "message_snapshots", None):
             snap = message.message_snapshots[0]
             print("Snapshot attributes:", dir(snap))
-            text = getattr(snap, "content", "")
+            print("Snapshot content:", repr(snap.content))
+text = snap.content
 
         with open("knowledge_base.txt", "a", encoding="utf-8") as f:
             f.write(f"\n[{datetime.now()}]\n")
