@@ -25,6 +25,8 @@ async def on_message(message):
     print("Content:", message.content)
     print("Embeds:", message.embeds)
     print("Attachments:", message.attachments)
+    print("Snapshots:", getattr(message, "message_snapshots", None))
+    print("Raw message:", message)
 
     # Only respond to DMs
     if isinstance(message.channel, discord.DMChannel):
